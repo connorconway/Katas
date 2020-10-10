@@ -2,12 +2,12 @@
 A repository to hold my Kata implementations.  
 These Katas are used to practice design patterns and utilise TDD.  
 Take each step in turn and don't look ahead.  
-
+  
 For each kata, remember to:  
-- Start with the simplest test case of an empty string and move to one and two numbers
-- Solve things as simply as possible so that you force yourself to write tests you did not think about
-- Refactor after each passing test
-
+- Start with the simplest test case  
+- Solve things as simply as possible so that you force yourself to write tests you did not think about  
+- Refactor after each passing test  
+  
 ## String Calculator
 ### Steps
 1. Create a simple String calculator with a method signature: `int Add(string numbers)`  
@@ -34,7 +34,7 @@ For each kata, remember to:
 ## Greeter
 ### Steps
 1. Create a Greeter class with a method signature `string Greet(string name)`  
-  1.3. The method should return `Hello <name>`  
+  1.1. The method should return `Hello <name>`  
   1.2. The signature of greet should not change throughout the kata.  
 2. Greet trims the input  
 3. Greet capitalizes the first letter of the name  
@@ -42,3 +42,18 @@ For each kata, remember to:
 5. Greet returns `Good evening <name>` when the time is 18:00-22:00  
 6. Greet returns `Good night <name>` when the time is 22:00-06:00  
 7. Greet logs into console each time it is called  
+  
+## Prime Factors
+### Steps
+1. Create a PrimeFactors class with a method signature `IEnumerable<int> Generate(int number)` 
+	1.1. The method should return the prime factors in numerical sequence.  
+2. 1 should return []  
+3. 2 should return [2]  
+4. 3 should return [3]  
+5. 4 should return [2,2]  
+6. 5 should return [5]  
+7. 6 should return [2,3]  
+8. 7 should return [7]  
+9. 8 should return [2,2,2]  
+10. 9 should return [3,3]  
+11. 4620 should return [2,2,3,5,7,11]  
