@@ -23,6 +23,8 @@ namespace RockPaperScissors
                 return true;
             if (this.Equals(Scissors()) && other.Equals(Paper()))
                 return true;
+            if (this.Equals(Paper()) && other.Equals(Rock()))
+                return true;
             return false;
         }
 
