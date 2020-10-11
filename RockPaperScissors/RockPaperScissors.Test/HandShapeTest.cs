@@ -9,6 +9,8 @@ namespace RockPaperScissors.Test
         public void Beats()
         {
             Assert.True(HandShape.Rock().Beats(HandShape.Scissors()));
+            Assert.False(HandShape.Rock().Beats(HandShape.Paper()));
+            Assert.True(HandShape.Scissors().Beats(HandShape.Paper()));
         }
     }
 }
