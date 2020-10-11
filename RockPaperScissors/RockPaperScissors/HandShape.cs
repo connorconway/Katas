@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RockPaperScissors
 {
     public class HandShape : IEquatable<HandShape>
     {
         private readonly string _value;
+        private static readonly Dictionary<HandShape, HandShape> Rules = new Dictionary<HandShape, HandShape>
+        {
+            { Scissors(), Rock() },
+            { Paper(), Scissors() },
+            { Rock(), Paper() }
+        };
 
         private HandShape(string value)
         {
@@ -19,13 +26,9 @@ namespace RockPaperScissors
 
         public bool Beats(HandShape other)
         {
-            if (this.Equals(Rock()) && other.Equals(Scissors()))
-                return true;
-            if (this.Equals(Scissors()) && other.Equals(Paper()))
-                return true;
-            if (this.Equals(Paper()) && other.Equals(Rock()))
-                return true;
-            return false;
+            Rules.TryGetValue(this, out var result);
+            return result.Equals(other) ? false : true;
+
         }
 
         public override string ToString() => _value;
