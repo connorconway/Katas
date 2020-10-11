@@ -8,9 +8,9 @@ namespace RockPaperScissors.Test
         [Test]
         public void Winner()
         {
-            var paperPlayer = new Player(Player.PaperStrategy);
-            var scissorsPlayer = new Player(Player.ScissorsStrategy);
-            var rockPlayer = new Player(Player.RockStrategy);
+            var paperPlayer = new Player("connor", Player.PaperStrategy);
+            var scissorsPlayer = new Player("bob", Player.ScissorsStrategy);
+            var rockPlayer = new Player("harry", Player.RockStrategy);
 
             var round = new Round(paperPlayer, scissorsPlayer);
             Assert.AreEqual(scissorsPlayer, round.Winner());
