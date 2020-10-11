@@ -17,6 +17,13 @@ namespace RockPaperScissors
 
         public static HandShape Paper() => new HandShape("Paper");
 
+        public bool Beats(HandShape other)
+        {
+            if (this.Equals(Rock()) && other.Equals(Scissors()))
+                return true;
+            return false;
+        }
+
         public override string ToString() => _value;
 
         public bool Equals(HandShape other)
