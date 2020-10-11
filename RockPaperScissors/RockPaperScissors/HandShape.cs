@@ -15,6 +15,8 @@ namespace RockPaperScissors
 
         public static HandShape Scissors() => new HandShape("Scissors");
 
+        public static HandShape Paper() => new HandShape("Paper");
+
         public override string ToString() => _value;
 
         public bool Equals(HandShape other)
