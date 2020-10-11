@@ -1,10 +1,16 @@
-﻿namespace RockPaperScissors
+﻿using System;
+
+namespace RockPaperScissors
 {
     public class Player
     {
-        public HandShape GenerateShape()
+        private readonly Func<HandShape> _shapeStrategy;
+
+        public Player(Func<HandShape> shapeStrategy)
         {
-            return HandShape.Rock();
+            _shapeStrategy = shapeStrategy;
         }
+
+        public HandShape GenerateShape() => _shapeStrategy.Invoke();
     }
 }

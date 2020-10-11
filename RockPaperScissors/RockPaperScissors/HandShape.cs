@@ -11,10 +11,11 @@ namespace RockPaperScissors
             _value = value;
         }
 
-        public static HandShape Rock()
-        {
-            return new HandShape("Rock");
-        }
+        public static HandShape Rock() => new HandShape("Rock");
+
+        public static HandShape Scissors() => new HandShape("Scissors");
+
+        public override string ToString() => _value;
 
         public bool Equals(HandShape other)
         {
