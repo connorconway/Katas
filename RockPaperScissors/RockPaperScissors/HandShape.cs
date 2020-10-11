@@ -13,10 +13,7 @@ namespace RockPaperScissors
             { Rock(), Paper() }
         };
 
-        private HandShape(string value)
-        {
-            _value = value;
-        }
+        private HandShape(string value) => _value = value;
 
         public static HandShape Rock() => new HandShape("Rock");
 
@@ -26,9 +23,10 @@ namespace RockPaperScissors
 
         public bool Beats(HandShape other)
         {
-            Rules.TryGetValue(this, out var result);
-            return result.Equals(other) ? false : true;
-
+            if (Equals(other))
+                return false;
+            Rules.TryGetValue(this, out var losesAgainstShape);
+            return !losesAgainstShape.Equals(other);
         }
 
         public override string ToString() => _value;
@@ -48,9 +46,6 @@ namespace RockPaperScissors
             return Equals((HandShape) obj);
         }
 
-        public override int GetHashCode()
-        {
-            return (_value != null ? _value.GetHashCode() : 0);
-        }
+        public override int GetHashCode() => (_value != null ? _value.GetHashCode() : 0);
     }
 }
