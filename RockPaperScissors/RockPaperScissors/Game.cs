@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RockPaperScissors
 {
@@ -8,7 +9,7 @@ namespace RockPaperScissors
         private readonly Player _playerTwo;
         private readonly int _maxNumberOfRounds;
         private readonly Dictionary<Player, int> _score = new Dictionary<Player, int>();
-        private int _currentRound = 1;
+        private int _roundsPlayed;
 
 
         public Game(Player playerOne, Player playerTwo, int numberOfRounds)
@@ -22,18 +23,21 @@ namespace RockPaperScissors
 
         public Player PlayRound()
         {
+            if (_roundsPlayed == _maxNumberOfRounds)
+                throw new ArgumentException("Maximum number of rounds have been reached. Please start a new game.");
+
             var roundWinner = new Round(_playerOne, _playerTwo).Winner();
             if (roundWinner.Equals(_playerOne)) _score[_playerOne]++;
             else
-            {
                 _score[_playerTwo]++;
-            }
-            _currentRound++;
+            _roundsPlayed++;
             return roundWinner;
         }
 
         public Player Winner()
         {
+            if (_roundsPlayed < _maxNumberOfRounds)
+                throw new ArgumentException("Unable to determine a winner. Please continue playing rounds.");
             int player1Score = _score[_playerOne];
             int player2Score = _score[_playerTwo];
 

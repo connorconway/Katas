@@ -1,31 +1,62 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace RockPaperScissors.Test
 {
     [TestFixture]
     public class GameTest
     {
-        [Test]
-        public void PlayRound()
-        {
-            var paperPlayer = new Player("connor", Player.PaperStrategy);
-            var scissorsPlayer = new Player("bob", Player.ScissorsStrategy);
-            var rockPlayer = new Player("harry", Player.RockStrategy);
+        private Player _scissorsPlayer;
+        private Player _rockPlayer;
 
-            var game = new Game(rockPlayer, scissorsPlayer, 1);
-            Assert.AreEqual(rockPlayer,game.PlayRound());
+        [SetUp]
+        public void SetUp()
+        {
+            _scissorsPlayer = new Player("bob", Player.ScissorsStrategy);
+            _rockPlayer = new Player("harry", Player.RockStrategy);
+        }
+
+        [Test]
+        public void PlayRound_returns_winner_of_round()
+        {
+            var game = new Game(_rockPlayer, _scissorsPlayer, 1);
+            Assert.AreEqual(_rockPlayer,game.PlayRound());
+        }
+
+        [Test]
+        public void PlayRound_throws_after_max_number_of_rounds()
+        {
+            var game = new Game(_rockPlayer, _scissorsPlayer, 1);
+            game.PlayRound();
+            Assert.Throws<ArgumentException>(() => game.PlayRound(),
+                "Maximum number of rounds have been reached. Please start a new game.");
         }
 
         [Test]
         public void Winner_when_one_round()
         {
-            var paperPlayer = new Player("connor", Player.PaperStrategy);
-            var scissorsPlayer = new Player("bob", Player.ScissorsStrategy);
-            var rockPlayer = new Player("harry", Player.RockStrategy);
-
-            var game = new Game(rockPlayer, scissorsPlayer, 1);
+            var game = new Game(_rockPlayer, _scissorsPlayer, 1);
             game.PlayRound();
-            Assert.AreEqual(rockPlayer, game.Winner());
+            Assert.AreEqual(_rockPlayer, game.Winner());
+        }
+
+        [Test]
+        public void Winner_when_two_rounds()
+        {
+            var game = new Game(_rockPlayer, _scissorsPlayer, 2);
+            game.PlayRound();
+            game.PlayRound();
+            Assert.AreEqual(_rockPlayer, game.Winner());
+        }
+
+        [Test]
+        public void Winner_when_not_enough_rounds_are_played()
+        {
+            var game = new Game(_rockPlayer, _scissorsPlayer, 3);
+            game.PlayRound();
+            Assert.Throws<ArgumentException>(() => game.Winner(),
+                "Unable to determine a winner. Please continue playing rounds.");
+
         }
     }
 }
