@@ -13,6 +13,13 @@ namespace RockPaperScissors
             { Rock(), Paper() }
         };
 
+        private static readonly Dictionary<string, Func<HandShape>> Shapes = new Dictionary<string, Func<HandShape>>
+        {
+            { "rock", Rock },
+            { "scissors", Scissors },
+            { "paper", Paper }
+        };
+
         private HandShape(string value) => _value = value;
 
         public static HandShape Rock() => new HandShape("Rock");
@@ -20,6 +27,12 @@ namespace RockPaperScissors
         public static HandShape Scissors() => new HandShape("Scissors");
 
         public static HandShape Paper() => new HandShape("Paper");
+
+        public static Func<HandShape> From(string shape)
+        {
+            Shapes.TryGetValue(shape, out var handShape);
+            return handShape;
+        }
 
         public bool Beats(HandShape other)
         {

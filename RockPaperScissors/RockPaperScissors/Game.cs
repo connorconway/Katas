@@ -8,16 +8,15 @@ namespace RockPaperScissors
         private readonly Player _playerOne;
         private readonly Player _playerTwo;
         private readonly int _maxNumberOfRounds;
-        private readonly Dictionary<Player, int> _score = new Dictionary<Player, int>();
+        private readonly Dictionary<Player, int> _scores = new Dictionary<Player, int>();
         private int _roundsPlayed;
-
 
         public Game(Player playerOne, Player playerTwo, int numberOfRounds)
         {
             _playerOne = playerOne;
             _playerTwo = playerTwo;
-            _score.Add(_playerOne, 0);
-            _score.Add(_playerTwo, 0);
+            _scores.Add(_playerOne, 0);
+            _scores.Add(_playerTwo, 0);
             _maxNumberOfRounds = numberOfRounds;
         }
 
@@ -27,9 +26,10 @@ namespace RockPaperScissors
                 throw new ArgumentException("Maximum number of rounds have been reached. Please start a new game.");
 
             var roundWinner = new Round(_playerOne, _playerTwo).Winner();
-            if (roundWinner.Equals(_playerOne)) _score[_playerOne]++;
+            if (roundWinner.Equals(_playerOne)) 
+                _scores[_playerOne]++;
             else
-                _score[_playerTwo]++;
+                _scores[_playerTwo]++;
             _roundsPlayed++;
             return roundWinner;
         }
@@ -38,11 +38,10 @@ namespace RockPaperScissors
         {
             if (_roundsPlayed < _maxNumberOfRounds)
                 throw new ArgumentException("Unable to determine a winner. Please continue playing rounds.");
-            int player1Score = _score[_playerOne];
-            int player2Score = _score[_playerTwo];
+            var player1Score = _scores[_playerOne];
+            var player2Score = _scores[_playerTwo];
 
-            if (player1Score > player2Score) return _playerOne;
-            return _playerTwo;
+            return player1Score > player2Score ? _playerOne : _playerTwo;
         }
     }
 }

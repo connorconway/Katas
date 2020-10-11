@@ -12,8 +12,8 @@ namespace RockPaperScissors.Test
         [SetUp]
         public void SetUp()
         {
-            _scissorsPlayer = new Player("bob", Player.ScissorsStrategy);
-            _rockPlayer = new Player("harry", Player.RockStrategy);
+            _scissorsPlayer = new Player("bob", PlayerTestStrategies.Scissors);
+            _rockPlayer = new Player("harry", PlayerTestStrategies.Rock);
         }
 
         [Test]
@@ -56,7 +56,6 @@ namespace RockPaperScissors.Test
             game.PlayRound();
             Assert.Throws<ArgumentException>(() => game.Winner(),
                 "Unable to determine a winner. Please continue playing rounds.");
-
         }
     }
 }
