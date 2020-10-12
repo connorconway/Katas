@@ -57,3 +57,27 @@ For each kata, remember to:
 9. 8 should return [2,2,2]  
 10. 9 should return [3,3]  
 11. 4620 should return [2,2,3,5,7,11]  
+
+## Rock, Paper, Scissors
+### Steps
+1. Create a game of Rock, Paper, Scissors with two players.  
+	1.1. Rock beats Scissors  
+	1.2. Scissors beats Paper  
+	1.3. Paper beats Rock  
+2. If both players play the same shape then no player gets the win  
+3. The amount of rounds played can be configurable  
+	3.1. The winner is the player who has the most amount of round wins  
+4. If there is no way for the other player to win by continuing to play, end the game  
+	4.1. For example, in a 3 round game if player one has 2 wins then end the game  
+5. Extend the game to also allow for Lizard and Spock.  
+	5.1. Scissors cut Paper  
+	5.2. Paper covers Rock  
+	5.3. Rock crushes Lizard  
+	5.4. Lizard poisons Spock  
+	5.5. Spock smashes Scissors  
+	5.6. Scissors decapitate Lizard  
+	5.7. Lizard eats Paper  
+	5.8. Paper disproves Spock  
+	5.9. Spock vaporizes Rock  
+	5.10. Rock crushes Scissors  
+
