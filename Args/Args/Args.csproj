@@ -45,6 +45,7 @@
     <Compile Include="ArgParsers\BoolArgParser.cs" />
     <Compile Include="ArgParsers\IArgParser.cs" />
     <Compile Include="ArgParsers\IntArgParser.cs" />
+    <Compile Include="ArgSchema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ArgParsers\StringArgParser.cs" />
   </ItemGroup>

@@ -50,6 +50,7 @@
     <Compile Include="ArgParserFactoryTest.cs" />
     <Compile Include="ArgParsers\BoolArgParserTest.cs" />
     <Compile Include="ArgParsers\IntArgParser.cs" />
+    <Compile Include="ArgSchemaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ArgParsers\StringArgParserTest.cs" />
   </ItemGroup>
