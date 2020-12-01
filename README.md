@@ -8,7 +8,7 @@ For each kata, remember to:
 - Solve things as simply as possible so that you force yourself to write tests you did not think about  
 - Refactor after each passing test  
   
-## String Calculator
+## String Calculator Kata
 ### Steps
 1. Create a simple String calculator with a method signature: `int Add(string numbers)`  
   1.1. The method can take up to two numbers, separated by commas, and will return their sum.   
@@ -31,7 +31,7 @@ For each kata, remember to:
   9.1. For example `“//[*][%]\n1*2%3”` should return 6.  
   9.2. Make sure you can also handle multiple delimiters with length longer than one char  
   
-## Greeter
+## Greeter Kata
 ### Steps
 1. Create a Greeter class with a method signature `string Greet(string name)`  
   1.1. The method should return `Hello <name>`  
@@ -43,9 +43,9 @@ For each kata, remember to:
 6. Greet returns `Good night <name>` when the time is 22:00-06:00  
 7. Greet logs into console each time it is called  
   
-## Prime Factors
+## Prime Factors Kata
 ### Steps
-1. Create a PrimeFactors class with a method signature `IEnumerable<int> Generate(int number)` 
+1. Create a PrimeFactors class with a method signature `IEnumerable<int> Generate(int number)`  
 	1.1. The method should return the prime factors in numerical sequence.  
 2. 1 should return []  
 3. 2 should return [2]  
@@ -57,8 +57,8 @@ For each kata, remember to:
 9. 8 should return [2,2,2]  
 10. 9 should return [3,3]  
 11. 4620 should return [2,2,3,5,7,11]  
-
-## Rock, Paper, Scissors
+  
+## Rock, Paper, Scissors Kata
 ### Steps
 1. Create a game of Rock, Paper, Scissors with two players.  
 	1.1. Rock beats Scissors  
@@ -80,4 +80,39 @@ For each kata, remember to:
 	5.8. Paper disproves Spock  
 	5.9. Spock vaporizes Rock  
 	5.10. Rock crushes Scissors  
-
+  
+## Args Kata
+### Steps
+1. Create a parser which takes in arguments with flags and values.  
+	1.1. Flags should be one character, preceded by a minus sign.  
+	1.2. Each flag should have zero, or one value associated with it.  
+	1.3. For example, `-l -p 8080 -d /usr` indicates:  
+		1.3.1. 3 flags: l, p, and d  
+		1.3.2. The l flag has no value associated with it and so is a boolean  
+		1.3.3. The p flag has an integer value of 8080  
+		1.3.4. The d flag has a string value of /usr  
+2. Handle negative integers  
+	2.1. For example, `-n -6` indicates:  
+		2.1.1. The n flag has an integer value of `-6`  
+2. The parser should take a schema detailing what arguments the program expects.  
+	1.1. The schema specifies the number and types of flags and values the program expects.  
+3. If a flag mentioned in the schema is missing in the arguments, a suitable default value should be returned.  
+	3.1. For example, `False` for a boolean, `0` for a number, and `“”` for a string.  
+4. Extend your code to support lists  
+	4.1. For example, `-g this,is,a,list -d 1,2,-3,5` indicates:  
+		4.1.1. The g flag is a list of strings `[“this”, “is”, “a”, “list”]`  
+		4.1.2. The d flag is a list of integers `[1, 2, -3, 5]`  
+  
+## Word Wrap Kata
+### Steps
+1. Create a Wrapper class with a static method named `Wrap` that takes 2 arguments; a string and a column number.  
+2. The function returns the string, but with line breaks inserted at just the right places to make sure that no line is longer than the column number.  
+	2.1. For example, `Wrapper.Wrap("one two three", 5)` should return `one t\r\nwo th\r\nree`  
+3. Break lines at word boundaries where possible.  
+	3.1. For example, `Wrapper.Wrap("one two three four", 7)` should return `one two\r\n three\r\n four`  
+4. Don't start or end a line with a space character  
+	4.1. For example, `Wrapper.Wrap("one two three four", 7)` should return `one two\r\nthree\r\nfour`  
+  
+## Birthday Greetings Kata
+### Steps
+1. 
