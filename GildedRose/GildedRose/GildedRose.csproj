@@ -41,17 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Items\BackstagePass.cs" />
-    <Compile Include="IsBackstagePass.cs" />
-    <Compile Include="IsStandard.cs" />
+    <Compile Include="AssessItemCalculator.cs" />
     <Compile Include="StockAssessingService.cs" />
-    <Compile Include="CompositeItemFactory.cs" />
-    <Compile Include="Items\IItem.cs" />
-    <Compile Include="IItemFactory.cs" />
-    <Compile Include="Items\LegendaryItem.cs" />
-    <Compile Include="IsLegendary.cs" />
-    <Compile Include="Items\StandardItem.cs" />
-    <Compile Include="ItemFactoryExtension.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
