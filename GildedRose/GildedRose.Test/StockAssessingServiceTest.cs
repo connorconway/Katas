@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GildedRose.Items;
 using NUnit.Framework;
 
 namespace GildedRose.Test
@@ -10,7 +9,6 @@ namespace GildedRose.Test
         [Test]
         public void AssessStock()
         {
-            var service = new StockAssessingService();
             var stockToUpdate = new List<Item>
             {
                 Item.Legendary("Sulfurus"),
@@ -35,9 +33,7 @@ namespace GildedRose.Test
                 Item.BackstagePass("quality never more than 50", -2, 50),
             };
 
-            var updatedStock = service.UpdateStock(stockToUpdate);
-
-            Assert.AreEqual(expectedStock, updatedStock);
+            CollectionAssert.AreEquivalent(expectedStock, new StockAssessingService().UpdateStock(stockToUpdate));
         }
     }
 }

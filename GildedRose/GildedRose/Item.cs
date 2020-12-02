@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GildedRose.Items
+namespace GildedRose
 {
     public class Item : IEquatable<Item>
     {
@@ -20,9 +20,9 @@ namespace GildedRose.Items
             _assessSellInMethod = assessSellInMethod;
         }
 
-        public static Item Legendary(string name) => new Item(name, int.MaxValue, LegendaryItemQuality, AssessItemCalculator.UnchangedQualityAssessment, AssessItemCalculator.NoNeedToSellAssessment);
-        public static Item Standard(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculator.DepreciatingQualityAssessment, AssessItemCalculator.ItemAgingAssessment);
-        public static Item BackstagePass(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculator.AppreciatingQualityAssessment, AssessItemCalculator.ItemAgingAssessment);
+        public static Item Legendary(string name) => new Item(name, int.MaxValue, LegendaryItemQuality, AssessItemCalculation.UnchangedQualityAssessment, AssessItemCalculation.NoNeedToSellAssessment);
+        public static Item Standard(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculation.DepreciatingQualityAssessment, AssessItemCalculation.ItemAgingAssessment);
+        public static Item BackstagePass(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculation.AppreciatingQualityAssessment, AssessItemCalculation.ItemAgingAssessment);
 
         public Item Assess()
         {
