@@ -23,6 +23,7 @@ namespace GildedRose
         public static Item Legendary(string name) => new Item(name, int.MaxValue, LegendaryItemQuality, AssessItemCalculation.UnchangedQualityAssessment, AssessItemCalculation.NoNeedToSellAssessment);
         public static Item Standard(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculation.DepreciatingQualityAssessment, AssessItemCalculation.ItemAgingAssessment);
         public static Item BackstagePass(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculation.AppreciatingQualityAssessment, AssessItemCalculation.ItemAgingAssessment);
+        public static Item Conjured(string name, int sellIn, int quality) => new Item(name, sellIn, quality, AssessItemCalculation.DoubleDepreciatingQualityAssessment, AssessItemCalculation.ItemAgingAssessment);
 
         public Item Assess()
         {

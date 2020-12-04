@@ -19,6 +19,8 @@ namespace GildedRose.Test
                 Item.BackstagePass("increase by 1 more than 10 days", 11, 5),
                 Item.Standard("sell by date has passed", -1, 5),
                 Item.BackstagePass("quality never more than 50", -1, 50),
+                Item.Conjured("conjured", 5, 5),
+                Item.Conjured("sell by date has passed", -1, 5)
             };
 
             var expectedStock = new List<Item>
@@ -31,6 +33,8 @@ namespace GildedRose.Test
                 Item.BackstagePass("increase by 1 more than 10 days", 10, 6),
                 Item.Standard("sell by date has passed", -2, 3),
                 Item.BackstagePass("quality never more than 50", -2, 50),
+                Item.Conjured("conjured", 4, 3),
+                Item.Conjured("sell by date has passed", -2, 1)
             };
 
             CollectionAssert.AreEquivalent(expectedStock, new StockAssessingService().UpdateStock(stockToUpdate));
